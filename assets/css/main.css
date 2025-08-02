@@ -12,13 +12,15 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Raleway",  sans-serif;
-  --nav-font: "Poppins",  sans-serif;
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Raleway", sans-serif;
+  --nav-font: "Poppins", sans-serif;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
+:root {
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #272829; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #45505b; /* Color for headings, subheadings and title throughout the website */
@@ -29,8 +31,8 @@
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: #45505b;  /* The default color of the main navmenu links */
-  --nav-hover-color:#f15914; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-color: #45505b; /* The default color of the main navmenu links */
+  --nav-hover-color: #f15914; /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #212529; /* Used for navigation links of the dropdown items in the navigation menu. */
@@ -158,18 +160,19 @@ h6 {
 @media (max-width: 1199px) {
   .header {
     background-color: var(--background-color);
-    border-right: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    border-right: 1px solid
+      color-mix(in srgb, var(--default-color), transparent 90%);
     width: 300px;
     left: -100%;
   }
 }
 
 @media (min-width: 1200px) and (max-width: 1600px) {
-  .header~main {
+  .header ~ main {
     margin-left: 160px;
   }
 
-  .header~main .hero {
+  .header ~ main .hero {
     margin-left: -160px;
     width: 100vw;
   }
@@ -245,7 +248,6 @@ h6 {
 }
 
 @media (min-width: 992px) {
-
   .navmenu a,
   .navmenu a:focus {
     max-width: 56px;
@@ -260,19 +262,19 @@ h6 {
 .navmenu a:hover,
 .navmenu .active,
 .navmenu .active:focus,
-.navmenu li:hover>a {
+.navmenu li:hover > a {
   color: var(--contrast-color);
   background: var(--nav-hover-color);
 }
 
 .navmenu a:hover,
-.navmenu li:hover>a {
+.navmenu li:hover > a {
   max-width: 100%;
   color: var(--contrast-color);
 }
 
 .navmenu a:hover span,
-.navmenu li:hover>a span {
+.navmenu li:hover > a span {
   display: block;
 }
 
@@ -330,7 +332,8 @@ h6 {
 
 .footer .copyright {
   padding-top: 25px;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-top: 1px solid
+    color-mix(in srgb, var(--default-color), transparent 90%);
 }
 
 .footer .credits {
@@ -443,11 +446,11 @@ h6 {
   font-weight: 400;
 }
 
-.page-title .breadcrumbs ol li+li {
+.page-title .breadcrumbs ol li + li {
   padding-left: 10px;
 }
 
-.page-title .breadcrumbs ol li+li::before {
+.page-title .breadcrumbs ol li + li::before {
   content: "/";
   display: inline-block;
   padding-right: 10px;
@@ -537,7 +540,7 @@ section,
 
 .hero:before {
   content: "";
-  
+
   position: absolute;
   inset: 0;
   z-index: 2;
@@ -621,6 +624,69 @@ section,
   line-height: 0;
 }
 
+/* Profile Image Styling */
+.about-img-wrapper {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.about-profile-img {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid #ffffff;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.about-profile-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Alternative rectangular rounded style */
+.about-profile-img-alt {
+  width: 300px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 4px solid #ffffff;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.about-profile-img-alt:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about-profile-img {
+    width: 220px;
+    height: 220px;
+  }
+
+  .about-profile-img-alt {
+    width: 250px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-profile-img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .about-profile-img-alt {
+    width: 200px;
+    height: 250px;
+  }
+}
+
 /*--------------------------------------------------------------
 # Stats Section
 --------------------------------------------------------------*/
@@ -661,66 +727,225 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Skills Section
+# Skills Section - Fixed Version
 --------------------------------------------------------------*/
-.skills .progress {
-  height: 60px;
-  display: block;
-  background: none;
-  border-radius: 0;
+
+.skills .section-title h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+  text-align: center;
 }
 
+.skills .section-title p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 3rem;
+  text-align: center;
+}
 
+/* Skills Filters */
+.skills .skills-filters {
+  padding: 0;
+  margin: 0 auto 40px auto;
+  list-style: none;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.skills .skills-filters li {
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 25px 12px 25px;
+  margin: 0 5px 10px 5px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+  background: #fff;
+  color: #666;
+  border: 2px solid #e9ecef;
+}
+
+.skills .skills-filters li:hover,
+.skills .skills-filters li.filter-active {
+  color: white;
+  background-color: #ec7944;
+  border-color: #ec7944;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(236, 121, 68, 0.3);
+}
+
+/* Skills Container Wrapper with Navigation */
+.skills-wrapper {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 60px; /* Add padding to ensure navigation buttons don't overlap */
+}
+
+.skills-navigation {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: #ec7944;
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 18px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.skills-navigation:hover:not(:disabled) {
+  background: #d86632;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.skills-navigation.prev {
+  left: 10px;
+}
+
+.skills-navigation.next {
+  right: 10px;
+}
+
+.skills-navigation:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: #ccc;
+  transform: translateY(-50%);
+}
+
+/* Skills Container */
+.skills-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding: 20px 0;
+
+  /* Hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.skills-container::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
+
+.skill-item {
+  flex: 0 0 auto;
+  width: 160px;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.skill-item.hidden {
+  display: none;
+}
+
+/* Skill Cards */
 .card.skill-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Increased shadow for better visibility */
-    background-color: #f9f9f9; /* Lighter background for contrast */
-    border-radius: 8px; /* Rounded corners for a smooth look */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 12px;
+  border: none;
+  height: 100%;
+  opacity: 1;
+  transform: scale(1);
+  text-align: center;
 }
 
 .card.skill-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2); /* More prominent shadow on hover */
-    background-color: #ec7944; /* Accent color on hover */
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(236, 121, 68, 0.2);
+  background: linear-gradient(135deg, #ec7944 0%, #ff9a56 100%);
+  color: white;
 }
 
 .card.skill-card img {
-  width: 100%;
-  height: auto; 
-  object-fit: contain; /* Keeps logo proportions intact */
-  max-height: 120px; /* Controls image size within card */
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  margin: 0 auto;
 }
 
+.card.skill-card:hover img {
+  filter: brightness(0) invert(1);
+}
 
-
-
-.skills .progress .skill {
-  color: var(--heading-color);
-  padding: 0;
-  margin: 0 0 6px 0;
-  text-transform: uppercase;
-  display: block;
+.card.skill-card p {
   font-weight: 600;
-  font-family: var(--heading-font);
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+  margin: 0;
 }
 
-.skills .progress .skill .val {
-  float: right;
-  font-style: normal;
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .skills-wrapper {
+    padding: 0 50px;
+  }
+
+  .skill-item {
+    width: 140px;
+  }
+
+  .skills .skills-filters li {
+    font-size: 14px;
+    padding: 8px 20px 10px 20px;
+    margin: 0 3px 8px 3px;
+  }
+
+  .skills-navigation {
+    width: 45px;
+    height: 45px;
+    font-size: 16px;
+  }
+
+  .skills-navigation.prev {
+    left: 5px;
+  }
+
+  .skills-navigation.next {
+    right: 5px;
+  }
 }
 
-.skills .progress-bar-wrap {
-  background: color-mix(in srgb, var(--default-color), transparent 90%);
-  height: 10px;
-}
+@media (max-width: 576px) {
+  .skills-wrapper {
+    padding: 0 40px;
+  }
 
-.skills .progress-bar {
-  width: 1px;
-  height: 10px;
-  transition: 0.9s;
-  background-color: var(--accent-color);
-}
+  .skill-item {
+    width: 120px;
+  }
 
+  .skills-container {
+    gap: 15px;
+  }
+
+  .skills-navigation {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+  }
+}
 /*--------------------------------------------------------------
 # Resume Section
 --------------------------------------------------------------*/
@@ -1094,7 +1319,7 @@ section,
 /*--------------------------------------------------------------
 # Contact Section
 --------------------------------------------------------------*/
-.contact .info-item+.info-item {
+.contact .info-item + .info-item {
   margin-top: 40px;
 }
 
@@ -1134,31 +1359,35 @@ section,
   height: 100%;
 }
 
-.contact .php-email-form input[type=text],
-.contact .php-email-form input[type=email],
+.contact .php-email-form input[type="text"],
+.contact .php-email-form input[type="email"],
 .contact .php-email-form textarea {
   font-size: 14px;
   padding: 10px 15px;
   box-shadow: none;
   border-radius: 0;
   color: var(--default-color);
-  background-color: color-mix(in srgb, var(--background-color), transparent 50%);
+  background-color: color-mix(
+    in srgb,
+    var(--background-color),
+    transparent 50%
+  );
   border-color: color-mix(in srgb, var(--default-color), transparent 80%);
 }
 
-.contact .php-email-form input[type=text]:focus,
-.contact .php-email-form input[type=email]:focus,
+.contact .php-email-form input[type="text"]:focus,
+.contact .php-email-form input[type="email"]:focus,
 .contact .php-email-form textarea:focus {
   border-color: var(--accent-color);
 }
 
-.contact .php-email-form input[type=text]::placeholder,
-.contact .php-email-form input[type=email]::placeholder,
+.contact .php-email-form input[type="text"]::placeholder,
+.contact .php-email-form input[type="email"]::placeholder,
 .contact .php-email-form textarea::placeholder {
   color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
-.contact .php-email-form button[type=submit] {
+.contact .php-email-form button[type="submit"] {
   color: var(--contrast-color);
   background: var(--accent-color);
   border: 0;
@@ -1167,7 +1396,7 @@ section,
   border-radius: 50px;
 }
 
-.contact .php-email-form button[type=submit]:hover {
+.contact .php-email-form button[type="submit"]:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 25%);
 }
 
@@ -1208,7 +1437,6 @@ section,
 }
 
 @media (max-width: 575px) {
-
   .portfolio-details .swiper-button-prev,
   .portfolio-details .swiper-button-next {
     display: none;
@@ -1354,14 +1582,15 @@ section,
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
 }
 
-.service-details .service-box+.service-box {
+.service-details .service-box + .service-box {
   margin-top: 30px;
 }
 
 .service-details .service-box h4 {
   font-size: 20px;
   font-weight: 700;
-  border-bottom: 2px solid color-mix(in srgb, var(--default-color), transparent 92%);
+  border-bottom: 2px solid
+    color-mix(in srgb, var(--default-color), transparent 92%);
   padding-bottom: 15px;
   margin-bottom: 15px;
 }
@@ -1406,7 +1635,8 @@ section,
   align-items: center;
   padding: 10px 0;
   transition: 0.3s;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-top: 1px solid
+    color-mix(in srgb, var(--default-color), transparent 90%);
 }
 
 .service-details .download-catalog a:first-child {
@@ -1481,7 +1711,3 @@ section,
 .starter-section {
   /* Add your styles here */
 }
-
-
-
-
