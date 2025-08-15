@@ -514,9 +514,8 @@ section,
 .section-title p {
   margin-bottom: 0;
 }
-
 /*--------------------------------------------------------------
-# Hero Section
+# Hero Section - Fixed Version dengan Foto di Mobile
 --------------------------------------------------------------*/
 .hero {
   width: 100%;
@@ -526,6 +525,7 @@ section,
   display: flex;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(135deg, #ff8d57 0%, #ff9a56 100%);
 }
 
 .hero img {
@@ -540,31 +540,51 @@ section,
 
 .hero:before {
   content: "";
-
   position: absolute;
   inset: 0;
   z-index: 2;
+  background: rgba(248, 120, 60, 0.1);
 }
 
 .hero .container {
   position: relative;
   z-index: 3;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.hero .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  min-height: 60vh;
+}
+
+.hero .col-lg-9 {
+  width: 100%;
+  max-width: 75%;
+  text-align: center;
 }
 
 .hero h2 {
   margin: 0;
   font-size: 64px;
   font-weight: 700;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero p {
   margin: 5px 0 0 0;
   font-size: 26px;
+  color: #fff;
 }
 
 .hero p span {
   letter-spacing: 1px;
-  border-bottom: 2px solid var(--accent-color);
+  border-bottom: 2px solid #fff;
 }
 
 .hero .social-links {
@@ -574,25 +594,381 @@ section,
 .hero .social-links a {
   font-size: 20px;
   display: inline-block;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: rgba(255, 255, 255, 0.8);
   line-height: 1;
   margin-right: 20px;
   transition: 0.3s;
 }
 
 .hero .social-links a:hover {
-  color: var(--accent-color);
+  color: #fff;
 }
 
+/* Mobile Styles - PERBAIKAN UTAMA DI SINI */
 @media (max-width: 768px) {
+  .hero {
+    padding: 60px 0;
+    min-height: 100vh; /* Pastikan tinggi minimum */
+  }
+
+  /* PERBAIKAN UTAMA: Pastikan gambar tetap tampil */
+  .hero img {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    z-index: 1 !important;
+  }
+
+  .hero:before {
+    /* Overlay yang tepat untuk mobile */
+    background: rgba(0, 0, 0, 0.4) !important;
+    z-index: 2 !important;
+  }
+
+  .hero .container {
+    position: relative !important;
+    z-index: 3 !important;
+  }
+
+  .hero .col-lg-9 {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+
   .hero h2 {
     font-size: 32px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+    color: #fff !important;
   }
 
   .hero p {
     font-size: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    color: #fff !important;
+  }
+
+  .hero .social-links a {
+    margin-right: 15px;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.9) !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  }
+
+  .hero .social-links a:hover {
+    color: #fff !important;
   }
 }
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 40px 0;
+    min-height: 100vh;
+  }
+
+  /* Pastikan gambar tetap ada di layar sangat kecil */
+  .hero img {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .hero:before {
+    background: rgba(0, 0, 0, 0.5) !important;
+  }
+
+  .hero h2 {
+    font-size: 28px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+  }
+
+  .hero p {
+    font-size: 18px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  }
+
+  .hero .social-links a {
+    margin-right: 12px;
+    font-size: 16px;
+  }
+}
+
+/* Tambahan: Jika masih bermasalah, coba dengan background-image sebagai fallback */
+@media (max-width: 768px) {
+  .hero.fallback-bg {
+    background-image: url("assets/img/bismillah.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .hero.fallback-bg img {
+    display: none; /* Sembunyikan img tag jika menggunakan background-image */
+  }
+} 
+
+
+/*--------------------------------------------------------------
+# Hero Section - Fix untuk Gambar Landscape di Mobile
+--------------------------------------------------------------*/
+
+/* Desktop Version */
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  padding: 80px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #693c27 0%, #ff9a56 100%);
+}
+
+.hero img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: rgba(241, 89, 20, 0.1);
+}
+
+.hero .container {
+  position: relative;
+  z-index: 3;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.hero .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  min-height: 60vh;
+}
+
+.hero .col-lg-9 {
+  width: 100%;
+  max-width: 75%;
+  text-align: center;
+}
+
+.hero h2 {
+  margin: 0;
+  font-size: 64px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero p {
+  margin: 5px 0 0 0;
+  font-size: 26px;
+  color: #fff;
+}
+
+.hero p span {
+  letter-spacing: 1px;
+  border-bottom: 2px solid #fff;
+}
+
+.hero .social-links {
+  margin-top: 25px;
+}
+
+.hero .social-links a {
+  font-size: 20px;
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1;
+  margin-right: 20px;
+  transition: 0.3s;
+}
+
+.hero .social-links a:hover {
+  color: #fff;
+}
+
+/* MOBILE VERSION - FIX UNTUK GAMBAR LANDSCAPE */
+@media (max-width: 768px) {
+  .hero {
+    /* Gunakan background-image dengan positioning yang tepat */
+    background-image: url('assets/img/bismillah.png') !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: scroll !important;
+    
+    /* Fallback gradient jika gambar tidak load */
+    background-color: #f15914 !important;
+    
+    padding: 80px 0 !important;
+    min-height: 100vh !important;
+    position: relative !important;
+  }
+
+  /* SEMBUNYIKAN IMG TAG - gunakan background-image saja */
+  .hero img {
+    display: none !important;
+  }
+
+  /* OVERLAY untuk mobile agar text terbaca */
+  .hero:before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: linear-gradient(
+      180deg, 
+      rgba(0, 0, 0, 0.3) 0%, 
+      rgba(0, 0, 0, 0.5) 50%, 
+      rgba(0, 0, 0, 0.7) 100%
+    ) !important;
+    z-index: 1 !important;
+  }
+
+  .hero .container {
+    position: relative !important;
+    z-index: 10 !important;
+  }
+
+  .hero .col-lg-9 {
+    max-width: 100% !important;
+    padding: 0 20px !important;
+    position: relative !important;
+    z-index: 11 !important;
+  }
+
+  .hero h2 {
+    font-size: 36px !important;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9) !important;
+    color: #fff !important;
+    margin-bottom: 10px !important;
+  }
+
+  .hero p {
+    font-size: 22px !important;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9) !important;
+    color: #fff !important;
+    margin-bottom: 20px !important;
+  }
+
+  .hero .social-links {
+    margin-top: 30px !important;
+  }
+
+  .hero .social-links a {
+    margin-right: 20px !important;
+    font-size: 20px !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    padding: 10px !important;
+    border-radius: 50% !important;
+    width: 45px !important;
+    height: 45px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .hero .social-links a:hover {
+    color: #fff !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    transform: translateY(-2px) !important;
+  }
+}
+
+/* ALTERNATIVE BACKGROUND POSITIONS untuk testing */
+@media (max-width: 768px) {
+  /* Jika gambar terpotong, coba position ini */
+  .hero.bg-top {
+    background-position: center top !important;
+  }
+  
+  .hero.bg-bottom {
+    background-position: center bottom !important;
+  }
+  
+  .hero.bg-left {
+    background-position: left center !important;
+  }
+  
+  .hero.bg-right {
+    background-position: right center !important;
+  }
+}
+
+/* SMARTPHONE KECIL */
+@media (max-width: 480px) {
+  .hero {
+    background-image: url('assets/img/bismillah.png') !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    padding: 60px 0 !important;
+    min-height: 100vh !important;
+  }
+
+  .hero:before {
+    background: linear-gradient(
+      180deg, 
+      rgba(0, 0, 0, 0.4) 0%, 
+      rgba(0, 0, 0, 0.6) 50%, 
+      rgba(0, 0, 0, 0.8) 100%
+    ) !important;
+  }
+
+  .hero h2 {
+    font-size: 28px !important;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 1) !important;
+  }
+
+  .hero p {
+    font-size: 18px !important;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 1) !important;
+  }
+
+  .hero .social-links a {
+    margin-right: 15px !important;
+    font-size: 18px !important;
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
+/* DEBUGGING - Tambahkan class ini untuk test */
+@media (max-width: 768px) {
+  .hero.debug-mobile {
+    background: url('assets/img/bismillah.png') center/cover no-repeat, 
+                linear-gradient(45deg, #ff0000 25%, #00ff00 25%, #00ff00 50%, #0000ff 50%, #0000ff 75%, #ffff00 75%) !important;
+    border: 5px solid #ff0000 !important;
+  }
+  
+  .hero.debug-mobile:before {
+    background: rgba(255, 0, 0, 0.3) !important;
+  }
+}
+
 
 /*--------------------------------------------------------------
 # About Section
